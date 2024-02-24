@@ -23,9 +23,8 @@ const cardInicioSesion = document.getElementById("cardInicioSesion");
 const cardRegistroUser = document.getElementById("cardRegistroUser");
 
 document.getElementById("usersLogin").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)()
-  document.getElementById("sesionView").classList.toggle("hidden")
-
+  toggleCardVisibility(cardInicioSesion)();
+  document.getElementById("sesionView").classList.toggle("hidden");
 });
 
 document
@@ -101,7 +100,6 @@ document.getElementById("cardCart").addEventListener("click", () => {
 
 if (document.getElementById("btnMasVendidos")) {
   document.getElementById("btnMasVendidos").addEventListener("click", () => {
-    // e.preventDefault();
     const btnMasVendidos = document.getElementById("btnMasVendidos");
     btnMasVendidos.classList.add("bg-blue-600", "text-white");
     btnNuevosProducts.classList.remove("bg-blue-600", "text-white");
@@ -112,7 +110,6 @@ if (document.getElementById("btnMasVendidos")) {
 
 if (document.getElementById("btnNuevosProducts")) {
   document.getElementById("btnNuevosProducts").addEventListener("click", () => {
-    // e.preventDefault();
     const btnNuevosProducts = document.getElementById("btnNuevosProducts");
     btnNuevosProducts.classList.add("bg-blue-600", "text-white");
     btnMasVendidos.classList.remove("bg-blue-600", "text-white");
@@ -124,7 +121,6 @@ if (document.getElementById("btnNuevosProducts")) {
 //! Users View
 document.getElementById("btnUserView").addEventListener("click", () => {
   document.getElementById("sesionView").classList.toggle("hidden");
-  console.log("holaaa");
 });
 
 //! Card Heart
@@ -134,3 +130,71 @@ document.querySelectorAll("#heartCard").forEach((heartCard) => {
     console.log("Card Heart");
   });
 });
+
+//!
+//!
+//! productos.php
+//!
+//!
+
+const filtrosScroll = document.getElementById("filtrosScroll");
+
+if (filtrosScroll) {
+  window.addEventListener("scroll", function () {
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    const puntoDeCambio = 200;
+
+    if (scrollY >= puntoDeCambio) {
+      filtrosScroll.classList.add("fixed");
+    } else {
+      filtrosScroll.classList.remove("fixed");
+    }
+  });
+}
+
+
+
+
+
+const gridProducts = document.getElementById("gridProducts");
+const textFiltro = document.getElementById("textFiltro");
+const filtroProduct = document.getElementById("filtroProduct");
+let filtrosOcultos = false;
+
+if (document.getElementById("ocultarFiltros")) {
+  document.getElementById("ocultarFiltros").addEventListener("click", () => {
+    if (filtrosOcultos === true) {
+      textFiltro.innerHTML = "Ocultar filtros";
+      gridProducts.classList.add("grid-cols-3");
+      gridProducts.classList.remove("grid-cols-4");
+      filtroProduct.classList.remove("hidden");
+      filtrosOcultos = false;
+      localStorage.setItem("filter", 'false');
+    } else if (filtrosOcultos === false) {
+      textFiltro.innerHTML = "Mostrar filtros";
+      gridProducts.classList.add("grid-cols-4");
+      gridProducts.classList.remove("grid-cols-3");
+      filtroProduct.classList.add("hidden");
+      filtrosOcultos = true;
+      localStorage.setItem("filter", 'true');
+    }
+  });
+}
+
+// Configuración inicial basada en el localStorage
+const filterState = localStorage.getItem("filter");
+
+if (filterState === "true") {
+  textFiltro.innerHTML = "Mostrar filtros";
+  gridProducts.classList.add("grid-cols-4");
+  gridProducts.classList.remove("grid-cols-3");
+  filtroProduct.classList.add("hidden"); // No necesitas toggle aquí, solo quitar la clase
+  filtrosOcultos = true;
+} else if (filterState === "false") {
+  textFiltro.innerHTML = "Ocultar filtros";
+  gridProducts.classList.add("grid-cols-3");
+  gridProducts.classList.remove("grid-cols-4");
+  filtroProduct.classList.remove("hidden"); // No necesitas toggle aquí, solo agregar la clase
+  filtrosOcultos = false;
+}
