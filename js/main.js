@@ -13,7 +13,9 @@ document.getElementById("modMoon").addEventListener("click", toggleDarkMode);
 const isDarkModeStored = localStorage.getItem("darkMode") === "dark";
 document.documentElement.classList.toggle("dark", isDarkModeStored);
 document.getElementById("modSun").classList.toggle("hidden", isDarkModeStored);
-document.getElementById("modMoon").classList.toggle("hidden", !isDarkModeStored);
+document
+  .getElementById("modMoon")
+  .classList.toggle("hidden", !isDarkModeStored);
 
 //! Inicio de sesión Y Registro de Usuario 👦
 
@@ -21,9 +23,10 @@ const cardInicioSesion = document.getElementById("cardInicioSesion");
 const cardRegistroUser = document.getElementById("cardRegistroUser");
 
 document.getElementById("usersLogin").addEventListener("click", () => {
-    toggleCardVisibility(cardInicioSesion)
-    // document.getElementById("sesionView").classList.toggle("hidden")
-})
+  toggleCardVisibility(cardInicioSesion)()
+  document.getElementById("sesionView").classList.toggle("hidden")
+
+});
 
 document
   .getElementById("btnExitLogin")
@@ -91,6 +94,7 @@ document
 
 document.getElementById("cardCart").addEventListener("click", () => {
   document.getElementById("cardCartComplete").classList.toggle("hidden");
+  document.getElementById("sesionView").classList.add("hidden");
 });
 
 //! Mejores Productos
@@ -106,17 +110,16 @@ if (document.getElementById("btnMasVendidos")) {
   });
 }
 
-if(document.getElementById("btnNuevosProducts")){
-document.getElementById("btnNuevosProducts").addEventListener("click", () => {
-  // e.preventDefault();
-  const btnNuevosProducts = document.getElementById("btnNuevosProducts");
-  btnNuevosProducts.classList.add("bg-blue-600", "text-white");
-  btnMasVendidos.classList.remove("bg-blue-600", "text-white");
-  divMasVendidos.classList.add("hidden");
-  divNuevoProductos.classList.remove("hidden");
-});
+if (document.getElementById("btnNuevosProducts")) {
+  document.getElementById("btnNuevosProducts").addEventListener("click", () => {
+    // e.preventDefault();
+    const btnNuevosProducts = document.getElementById("btnNuevosProducts");
+    btnNuevosProducts.classList.add("bg-blue-600", "text-white");
+    btnMasVendidos.classList.remove("bg-blue-600", "text-white");
+    divMasVendidos.classList.add("hidden");
+    divNuevoProductos.classList.remove("hidden");
+  });
 }
-
 
 //! Users View
 document.getElementById("btnUserView").addEventListener("click", () => {

@@ -1,4 +1,4 @@
-<div id="cardInicioSesion" class="hidden absolute flex justify-center items-center z-10 w-full h-[100vh] bg-gray-500/40">
+<div id="cardInicioSesion" class="hidden absolute flex justify-center items-center z-30 w-full h-[100vh] bg-gray-500/40">
     <div class="relative flex justify-center items-center rounded-xl w-[350px] h-[500px]  bg-[#F7F9F9] dark:bg-slate-800 p-7">
         <div class=" w-full">
             <div class="absolute top-2 right-4">
