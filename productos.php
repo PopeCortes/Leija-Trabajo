@@ -5,7 +5,7 @@
         <div class="">
             <div class="">
                 <!-- Titulos -->
-                <div class="flex justify-between px-[5rem] py-5 items-center">
+                <div id="" class="flex justify-between px-[5rem] py-5 items-center">
                     <div class="">
                         <h1 class="text-[1.3rem]">Destacados</h1>
                     </div>
@@ -30,14 +30,20 @@
                 <div class="flex relative">
                     <!--//! Filtros -->
                     <div id="filtroProduct" class="relative w-[350px] bg-white dark:bg-slate-900 ">
-                        <div id="filtrosScroll" class=" top-7 w-[90%] mx-auto px-5 py-3 space-y-2">
-                            <div class="absolute top-0 left-0">
+                        <div id="filtrosScroll" class=" top-7  w-[90%] mx-auto px-7 py-3 space-y-2">
+                            <div class="absolute top-0 left-0 px-7 py-3 space-y-2">
+                            
 
-                                <!--  -->
-                                <div class="flex">
-                                    <button class="flex space-x-3 items-center"><span class="block rounded-md w-[20px] h-[20px] border dark:border-[#5499C7] border-[#1A5276]"></span> <span class="dark:text-white text-black">Categoria</span> </button>
-                                </div>
-                                <!--  -->
+                                <?php for ($i = 0; $i < 7; $i++) { ?>
+
+                                    <!--  -->
+                                    <div class="flex">
+                                        <button class="flex space-x-3 items-center"><span class="block rounded-md w-[20px] h-[20px] border dark:border-[#5499C7] border-[#1A5276]"></span> <span class="dark:text-white text-black">Categoria</span> </button>
+                                    </div>
+                                    <!--  -->
+
+                                <?php } ?>
+
 
 
                             </div>

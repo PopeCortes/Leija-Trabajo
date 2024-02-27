@@ -13,9 +13,8 @@ document.getElementById("modMoon").addEventListener("click", toggleDarkMode);
 const isDarkModeStored = localStorage.getItem("darkMode") === "dark";
 document.documentElement.classList.toggle("dark", isDarkModeStored);
 document.getElementById("modSun").classList.toggle("hidden", isDarkModeStored);
-document
-  .getElementById("modMoon")
-  .classList.toggle("hidden", !isDarkModeStored);
+document.getElementById("modMoon").classList.toggle("hidden", !isDarkModeStored);
+
 
 //! Inicio de sesión Y Registro de Usuario 👦
 
@@ -27,13 +26,9 @@ document.getElementById("usersLogin").addEventListener("click", () => {
   document.getElementById("sesionView").classList.toggle("hidden");
 });
 
-document
-  .getElementById("btnExitLogin")
-  .addEventListener("click", toggleCardVisibility(cardInicioSesion));
+document.getElementById("btnExitLogin").addEventListener("click", toggleCardVisibility(cardInicioSesion));
 
-document
-  .getElementById("btnExitRegister")
-  .addEventListener("click", toggleCardVisibility(cardRegistroUser));
+document.getElementById("btnExitRegister").addEventListener("click", toggleCardVisibility(cardRegistroUser));
 
 document.getElementById("btnRegistrarme").addEventListener("click", () => {
   toggleCardVisibility(cardInicioSesion)();
@@ -70,8 +65,7 @@ document.getElementById("btnMostrarPass").addEventListener("click", () => {
 
   passView = !passView;
 });
-document
-  .getElementById("btnMostrarPassRegister")
+document.getElementById("btnMostrarPassRegister")
   .addEventListener("click", () => {
     document.getElementById("passwordRegistro").type = passView
       ? "password"
@@ -153,8 +147,26 @@ if (filtrosScroll) {
   });
 }
 
+const footerView = document.getElementById("footerView");
 
+if (footerView && filtrosScroll) {
+  window.addEventListener("scroll", function () {
+    const scrollY = window.scrollY || window.pageYOffset;
 
+    const puntoDeCambio = footerView.offsetTop - window.innerHeight;
+
+    if (scrollY >= puntoDeCambio) {
+      filtrosScroll.classList.remove("fixed");
+      console.log("add fixed");
+      
+      
+    } else {
+      // filtrosScroll.classList.add("fixed");
+      
+      console.log("remove fixed");
+    }
+  });
+}
 
 
 const gridProducts = document.getElementById("gridProducts");
@@ -170,14 +182,14 @@ if (document.getElementById("ocultarFiltros")) {
       gridProducts.classList.remove("grid-cols-4");
       filtroProduct.classList.remove("hidden");
       filtrosOcultos = false;
-      localStorage.setItem("filter", 'false');
+      localStorage.setItem("filter", "false");
     } else if (filtrosOcultos === false) {
       textFiltro.innerHTML = "Mostrar filtros";
       gridProducts.classList.add("grid-cols-4");
       gridProducts.classList.remove("grid-cols-3");
       filtroProduct.classList.add("hidden");
       filtrosOcultos = true;
-      localStorage.setItem("filter", 'true');
+      localStorage.setItem("filter", "true");
     }
   });
 }

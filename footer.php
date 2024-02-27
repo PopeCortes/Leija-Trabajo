@@ -1,4 +1,4 @@
-<footer class="bg-[#F4F6F6] dark:bg-slate-950 dark:text-white text-black px-5 py-5">
+<footer id="footerView" class="bg-[#F4F6F6] dark:bg-slate-950 dark:text-white text-black px-5 py-5">
     <div class="">
         <div class="flex justify-around items-start">
             <div class="">

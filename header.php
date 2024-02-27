@@ -85,7 +85,7 @@
 
             </div>
         </header>
-        <nav class="" style="border-bottom: 1px solid #1F618D;">
+        <nav id="" style="border-bottom: 1px solid #1F618D;">
             <ul class="flex justify-between px-[4rem] py-3">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="productos.php">Productos</a></li>
