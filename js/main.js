@@ -98,14 +98,70 @@ if (filterState === "true") {
   filtrosOcultos = false;
 }
 
-const arrowUp = document.getElementById("ordenarArriba");
-const arrowDown = document.getElementById("ordenarAbajo");
+const btnOrdenar = document.getElementById("btnOrdenar");
+const ordenarArriba = document.getElementById("ordenarArriba");
 const textViewOrdenar = document.getElementsByClassName("textViewOrdenar");
+const containerOrden = document.getElementById("containerOrden");
 
-let destacados = document.getElementById("destacados");
-let masRecientes = document.getElementById("masRecientes");
-let alto_bajo = document.getElementById("alto-bajo");
-let bajo_alto = document.getElementById("bajo-alto");
+const destacados = document.getElementById("destacados");
+const masRecientes = document.getElementById("masRecientes");
+const alto_bajo = document.getElementById("alto-bajo");
+const bajo_alto = document.getElementById("bajo-alto");
 
-if (arrowDown) {
+function ordenarProducts() {
+  btnOrdenar.addEventListener("click", () => {
+    ordenarArriba.classList.toggle("fa-chevron-up");
+    ordenarArriba.classList.toggle("fa-chevron-down");
+    containerOrden.classList.toggle("hidden");
+  });
+
+  destacados.addEventListener("click", () => {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Destacados";
+    }
+    localStorage.setItem("ordenar", "destacados");
+  });
+
+  masRecientes.addEventListener("click", () => {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Más Recientes";
+    }
+    localStorage.setItem("ordenar", "masRecientes");
+  });
+
+  alto_bajo.addEventListener("click", () => {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Alto a Bajo";
+    }
+    localStorage.setItem("ordenar", "alto_bajo");
+  });
+
+  bajo_alto.addEventListener("click", () => {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Bajo a Alto";
+    }
+    localStorage.setItem("ordenar", "bajo_alto");
+  });
+}
+
+if (containerOrden) {
+  ordenarProducts();
+
+  if (localStorage.getItem("ordenar") === "destacados") {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Destacados";
+    }
+  } else if (localStorage.getItem("ordenar") === "masRecientes") {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Más Recientes";
+    }
+  } else if (localStorage.getItem("ordenar") === "alto_bajo") {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Alto a Bajo";
+    }
+  } else if (localStorage.getItem("ordenar") === "bajo_alto") {
+    for (let i = 0; i < textViewOrdenar.length; i++) {
+      textViewOrdenar[i].textContent = "Bajo a Alto";
+    }
+  }
 }

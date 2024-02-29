@@ -13,8 +13,8 @@
                         <ul class="flex space-x-7 items-center">
                             <!-- <li><button>Mostrar Filtros <i class="fa-solid fa-sliders"></i></button></li> -->
                             <li><button id="ocultarFiltros" class="flex items-center "><span id="textFiltro">Ocultar filtros</span> <i class="fa-solid fa-sliders ml-2"></i></button></li>
-                            <li class="relative"><button>Ordenar por <i id="ordenarArriba" class="hidden fa-solid fa-chevron-up ml-2"></i> <i id="ordenarAbajo" class="fa-solid fa-chevron-down ml-2"></i> <span class="textViewOrdenar">Destacados</span> </button>
-                                <div class="hidden absolute z-30 top-8 right-0 bg-white text-black border border-gray-500 dark:bg-[#1B4F72] dark:text-white rounded-md px-5 py-3 w-[200px]">
+                            <li class="relative"><button id="btnOrdenar">Ordenar por : <span class="textViewOrdenar ml-2">Destacados</span> <i id="ordenarArriba" class=" fa-solid fa-chevron-down ml-1"></i> </button>
+                                <div id="containerOrden" class="hidden absolute z-30 top-8 right-0 bg-white text-black border border-gray-500 dark:bg-[#1B4F72] dark:text-white rounded-md px-5 py-3 w-[200px]">
                                     <ul class="space-y-2">
                                         <li class="w-full"><a id="destacados" class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Destacados</a></li>
                                         <li class="w-full"><a id="masRecientes" class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Más recientes</a></li>
