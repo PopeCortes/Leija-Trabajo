@@ -1,95 +1,3 @@
-//! Theme Dark 🌙
-const toggleDarkMode = () => {
-  const isDarkMode = document.documentElement.classList.toggle("dark");
-  localStorage.setItem("darkMode", isDarkMode ? "dark" : "light");
-  document.getElementById("modSun").classList.toggle("hidden", isDarkMode);
-  document.getElementById("modMoon").classList.toggle("hidden", !isDarkMode);
-};
-
-document.getElementById("modSun").addEventListener("click", toggleDarkMode);
-document.getElementById("modMoon").addEventListener("click", toggleDarkMode);
-
-// Inicialización del modo oscuro
-const isDarkModeStored = localStorage.getItem("darkMode") === "dark";
-document.documentElement.classList.toggle("dark", isDarkModeStored);
-document.getElementById("modSun").classList.toggle("hidden", isDarkModeStored);
-document.getElementById("modMoon").classList.toggle("hidden", !isDarkModeStored);
-
-
-//! Inicio de sesión Y Registro de Usuario 👦
-
-const cardInicioSesion = document.getElementById("cardInicioSesion");
-const cardRegistroUser = document.getElementById("cardRegistroUser");
-
-document.getElementById("usersLogin").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)();
-  document.getElementById("sesionView").classList.toggle("hidden");
-});
-
-document.getElementById("btnExitLogin").addEventListener("click", toggleCardVisibility(cardInicioSesion));
-
-document.getElementById("btnExitRegister").addEventListener("click", toggleCardVisibility(cardRegistroUser));
-
-document.getElementById("btnRegistrarme").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)();
-  toggleCardVisibility(cardRegistroUser)();
-});
-
-document.getElementById("yaTengoCuenta").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)();
-  toggleCardVisibility(cardRegistroUser)();
-});
-
-function toggleCardVisibility(card) {
-  return () => {
-    card.classList.toggle("hidden");
-    document.body.classList.toggle("overflow-hidden");
-  };
-}
-
-//! Mostrar contraseña y no mostrar Contraseña 🔑
-
-let passView = false;
-
-document.getElementById("btnMostrarPass").addEventListener("click", () => {
-  document.getElementById("password").type = passView ? "password" : "text";
-
-  const checkPassIcon = document.getElementById("checkPass");
-  if (passView) {
-    checkPassIcon.classList.remove("fa-eye");
-    checkPassIcon.classList.add("fa-eye-slash");
-  } else {
-    checkPassIcon.classList.remove("fa-eye-slash");
-    checkPassIcon.classList.add("fa-eye");
-  }
-
-  passView = !passView;
-});
-document.getElementById("btnMostrarPassRegister")
-  .addEventListener("click", () => {
-    document.getElementById("passwordRegistro").type = passView
-      ? "password"
-      : "text";
-
-    const checkPassIcon = document.getElementById("checkPassRegistro");
-    if (passView) {
-      checkPassIcon.classList.remove("fa-eye");
-      checkPassIcon.classList.add("fa-eye-slash");
-    } else {
-      checkPassIcon.classList.remove("fa-eye-slash");
-      checkPassIcon.classList.add("fa-eye");
-    }
-
-    passView = !passView;
-  });
-
-//! Cart 🛒
-
-document.getElementById("cardCart").addEventListener("click", () => {
-  document.getElementById("cardCartComplete").classList.toggle("hidden");
-  document.getElementById("sesionView").classList.add("hidden");
-});
-
 //! Mejores Productos
 
 if (document.getElementById("btnMasVendidos")) {
@@ -111,19 +19,6 @@ if (document.getElementById("btnNuevosProducts")) {
     divNuevoProductos.classList.remove("hidden");
   });
 }
-
-//! Users View
-document.getElementById("btnUserView").addEventListener("click", () => {
-  document.getElementById("sesionView").classList.toggle("hidden");
-});
-
-//! Card Heart
-document.querySelectorAll("#heartCard").forEach((heartCard) => {
-  heartCard.addEventListener("click", () => {
-    heartCard.classList.toggle("fa-solid");
-    console.log("Card Heart");
-  });
-});
 
 //!
 //!
@@ -153,21 +48,13 @@ if (footerView && filtrosScroll) {
   window.addEventListener("scroll", function () {
     const scrollY = window.scrollY || window.pageYOffset;
 
-    const puntoDeCambio = footerView.offsetTop - window.innerHeight;
+    const puntoDeCambio = footerView.offsetTop - window.innerHeight / 2;
 
     if (scrollY >= puntoDeCambio) {
       filtrosScroll.classList.remove("fixed");
-      console.log("add fixed");
-      
-      
-    } else {
-      // filtrosScroll.classList.add("fixed");
-      
-      console.log("remove fixed");
     }
   });
 }
-
 
 const gridProducts = document.getElementById("gridProducts");
 const textFiltro = document.getElementById("textFiltro");
@@ -209,4 +96,16 @@ if (filterState === "true") {
   gridProducts.classList.remove("grid-cols-4");
   filtroProduct.classList.remove("hidden"); // No necesitas toggle aquí, solo agregar la clase
   filtrosOcultos = false;
+}
+
+const arrowUp = document.getElementById("ordenarArriba");
+const arrowDown = document.getElementById("ordenarAbajo");
+const textViewOrdenar = document.getElementsByClassName("textViewOrdenar");
+
+let destacados = document.getElementById("destacados");
+let masRecientes = document.getElementById("masRecientes");
+let alto_bajo = document.getElementById("alto-bajo");
+let bajo_alto = document.getElementById("bajo-alto");
+
+if (arrowDown) {
 }

@@ -49,7 +49,7 @@
 
                         <!--//! Inicio de sesión -->
                         <li class="relative"><a id="btnUserView" href="#User"><i class="fa-regular fa-user"></i></a>
-                            <div id="sesionView" class="hidden w-[180px] z-10 absolute top-[40px] right-2">
+                            <div id="sesionView" class="hidden w-[180px] z-50 absolute top-[40px] right-2">
                                 <div class="dark:bg-[#2E4053] bg-[#D0D3D4] p-4 rounded-lg max-h-[500px] overflow-auto">
                                     <ul class="text-end text-[16px] space-y-2">
                                         <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="#">Mis compras</a></li>
@@ -64,7 +64,7 @@
 
                         </li>
                         <li class="relative"><a id="cardCart" href="#Cart"><i class="fa-brands fa-shopify"></i></a>
-                            <ul id="cardCartComplete" class="hidden w-[350px] absolute z-20 top-[50px] right-2">
+                            <ul id="cardCartComplete" class="hidden w-[350px] absolute z-50 top-[50px] right-2">
                                 <!-- Pico del Cart -->
                                 <span id="cartPico" class="absolute w-[20px] h-[25px] top-[-17px] right-0 z-[-1]" style="background-image: linear-gradient(135deg, rgba(56, 217, 169, 0) 48%, #2E4053 48%);"></span>
                                 <!-- Incluir el Carrito  -->

@@ -6,8 +6,11 @@
     <div class="h-[80vh] relative">
 
         <video autoplay loop muted class="min-w-[1440px] mx-auto h-[100%] object-cover" loading="lazy" preload="none">
+
+            <!-- Fuente del video -->
             <source class="w-[100%] h-[100%]" src="videos/RLsolutions.mp4" type="video/mp4">
         </video>
+
 
 
         <div class="absolute top-[35%] py-[1.3rem] rounded-xl bg-black/10 left-0 right-0 w-[700px] mx-auto backdrop-blur-md flex justify-center items-center text-white text-6xl font-bold text-center uppercase drop-shadow-xl">RLSOLUTIONS <br> MOTION & CONTROL</div>

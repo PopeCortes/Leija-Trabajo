@@ -7,19 +7,19 @@
                 <!-- Titulos -->
                 <div id="" class="flex justify-between px-[5rem] py-5 items-center">
                     <div class="">
-                        <h1 class="text-[1.3rem]">Destacados</h1>
+                        <h1 class="text-[1.3rem] textViewOrdenar">Destacados</h1>
                     </div>
                     <div class="">
                         <ul class="flex space-x-7 items-center">
                             <!-- <li><button>Mostrar Filtros <i class="fa-solid fa-sliders"></i></button></li> -->
                             <li><button id="ocultarFiltros" class="flex items-center "><span id="textFiltro">Ocultar filtros</span> <i class="fa-solid fa-sliders ml-2"></i></button></li>
-                            <li class="relative"><button>Ordenar por <i id="ordenarArriba" class="fa-solid fa-chevron-up ml-2"></i> <i id="ordenarAbajo" class="fa-solid fa-chevron-down ml-2"></i> </button>
-                                <div class="hidden absolute z-10 top-8 right-0 bg-white text-black border border-gray-500 dark:bg-[#1B4F72] dark:text-white rounded-md px-5 py-3 w-[200px]">
+                            <li class="relative"><button>Ordenar por <i id="ordenarArriba" class="hidden fa-solid fa-chevron-up ml-2"></i> <i id="ordenarAbajo" class="fa-solid fa-chevron-down ml-2"></i> <span class="textViewOrdenar">Destacados</span> </button>
+                                <div class=" absolute z-30 top-8 right-0 bg-white text-black border border-gray-500 dark:bg-[#1B4F72] dark:text-white rounded-md px-5 py-3 w-[200px]">
                                     <ul class="space-y-2">
-                                        <li class="w-full"><a class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Destacados</a></li>
-                                        <li class="w-full"><a class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Más recientes</a></li>
-                                        <li class="w-full"><a class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Precio: alto-bajo</a></li>
-                                        <li class="w-full"><a class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Precio: bajo-alto</a></li>
+                                        <li class="w-full"><a id="destacados" class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Destacados</a></li>
+                                        <li class="w-full"><a id="masRecientes" class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Más recientes</a></li>
+                                        <li class="w-full"><a id="alto-bajo" class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Precio: alto-bajo</a></li>
+                                        <li class="w-full"><a id="bajo-alto" class="flex justify-end hover:scale-[1.05] transition-all w-full" href="#">Precio: bajo-alto</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -32,7 +32,7 @@
                     <div id="filtroProduct" class="relative w-[350px] bg-white dark:bg-slate-900 ">
                         <div id="filtrosScroll" class=" top-7  w-[90%] mx-auto px-7 py-3 space-y-2">
                             <div class="absolute top-0 left-0 px-7 py-3 space-y-2">
-                            
+
 
                                 <?php for ($i = 0; $i < 7; $i++) { ?>
 
@@ -62,7 +62,7 @@
                                         <!-- Card -->
                                         <div class=" w-[260px] h-[400px] group rounded-md dark:border-gray-800 border overflow-hidden dark:bg-slate-950">
                                             <div class="relative w-[100%] h-[100%]">
-                                                <div class="relative z-30 w-full flex justify-between p-[10px]">
+                                                <div class="relative z-20 w-full flex justify-between p-[10px]">
                                                     <h2>Allen brandley</h2>
                                                     <a href="#Heart" class="text-[#2453d4] transition-all duration-[0.3s]">
                                                         <i id="heartCard" data-idItems="1" class="fa-regular fa-heart"></i>
