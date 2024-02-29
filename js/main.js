@@ -165,3 +165,15 @@ if (containerOrden) {
     }
   }
 }
+
+const btnCategories = document.getElementsByClassName("btnCategories");
+if (btnCategories.length > 0) {
+  for (let i = 0; i < btnCategories.length; i++) {
+    btnCategories[i].addEventListener("click", () => {
+      btnCategories[i]
+        .getElementsByClassName("viewCheck")[0]
+        .classList.toggle("fa-check");
+      console.log("xwnckj");
+    });
+  }
+}

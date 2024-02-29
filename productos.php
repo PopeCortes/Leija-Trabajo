@@ -38,7 +38,12 @@
 
                                     <!--  -->
                                     <div class="flex">
-                                        <button class="flex space-x-3 items-center"><span class="block rounded-md w-[20px] h-[20px] border dark:border-[#5499C7] border-[#1A5276]"></span> <span class="dark:text-white text-black">Categoria</span> </button>
+                                        <button class="flex space-x-3 items-center btnCategories">
+                                            <span class="relative block rounded-md w-[20px] h-[20px] border dark:border-[#5499C7] border-[#1A5276]">
+                                                <i class="fa-solid  absolute flex justify-center items-center top-0 bottom-0 left-0 right-0 mx-auto viewCheck"></i>
+                                            </span>
+                                            <span class="dark:text-white text-black">Categoria</span>
+                                        </button>
                                     </div>
                                     <!--  -->
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЯLsolutions</title>
+    <!-- <link rel="shortcut icon" href="./Readme_Img/Index_Dark.png" type="image/x-icon"> -->
 
     <!-- Link style -->
     <link rel="stylesheet" href="css/style.css">
@@ -89,7 +90,7 @@
             <ul class="flex justify-between px-[4rem] py-3">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="productos.php">Productos</a></li>
-                <li><a href="#">Categoria</a></li>
+                <li><a href="categorias.php">Categoria</a></li>
                 <li><a href="#">Acerca de</a></li>
                 <li><a href="#">Ubicación</a></li>
             </ul>
