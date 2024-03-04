@@ -32,8 +32,9 @@
             <div class="text-[1.3rem] flex justify-between items-center">
                 <div class="pl-10">
                     <div class="block text-center">
-                        <h1 class="font-bold text-[1.3rem] scale-[1.8] uppercase">ЯLsolutions</h1>
-                        <p class="text-[15px]">La mejor opción</p>
+                        <!-- <h1 class="font-bold text-[1.3rem] scale-[1.8] uppercase">ЯLsolutions</h1> -->
+                        <a href=""><img class="max-w-[240px]" src="images/RLsolutions - web 2.png" alt=""></a>
+                        <!-- <p class="text-[20px]">La mejor opción</p> -->
                     </div>
                 </div>
                 <div class="">
@@ -86,11 +87,11 @@
 
             </div>
         </header>
-        <nav id="" style="border-bottom: 1px solid #1F618D;">
+        <nav style="border-bottom: 1px solid #1F618D;">
             <ul class="flex justify-between px-[4rem] py-3">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="productos.php">Productos</a></li>
-                <li><a href="categorias.php">Categoria</a></li>
+                <li><a href="proyects.php">Proyectos</a></li>
                 <li><a href="#">Acerca de</a></li>
                 <li><a href="#">Ubicación</a></li>
             </ul>
