@@ -108,6 +108,12 @@ const masRecientes = document.getElementById("masRecientes");
 const alto_bajo = document.getElementById("alto-bajo");
 const bajo_alto = document.getElementById("bajo-alto");
 
+function closeOrden() {
+  ordenarArriba.classList.toggle("fa-chevron-up");
+  ordenarArriba.classList.toggle("fa-chevron-down");
+  containerOrden.classList.toggle("hidden");
+}
+
 function ordenarProducts() {
   btnOrdenar.addEventListener("click", () => {
     ordenarArriba.classList.toggle("fa-chevron-up");
@@ -119,6 +125,7 @@ function ordenarProducts() {
     for (let i = 0; i < textViewOrdenar.length; i++) {
       textViewOrdenar[i].textContent = "Destacados";
     }
+    closeOrden();
     localStorage.setItem("ordenar", "destacados");
   });
 
@@ -126,6 +133,7 @@ function ordenarProducts() {
     for (let i = 0; i < textViewOrdenar.length; i++) {
       textViewOrdenar[i].textContent = "Más Recientes";
     }
+    closeOrden();
     localStorage.setItem("ordenar", "masRecientes");
   });
 
@@ -133,6 +141,7 @@ function ordenarProducts() {
     for (let i = 0; i < textViewOrdenar.length; i++) {
       textViewOrdenar[i].textContent = "Alto a Bajo";
     }
+    closeOrden();
     localStorage.setItem("ordenar", "alto_bajo");
   });
 
@@ -140,6 +149,7 @@ function ordenarProducts() {
     for (let i = 0; i < textViewOrdenar.length; i++) {
       textViewOrdenar[i].textContent = "Bajo a Alto";
     }
+    closeOrden();
     localStorage.setItem("ordenar", "bajo_alto");
   });
 }

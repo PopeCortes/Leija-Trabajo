@@ -1,4 +1,6 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php';
+require './PHP/view.php';
+?>
 
 <section class="mb-[5rem] py-5 px-3">
     <div class="">
@@ -35,7 +37,6 @@
 
 
                                 <?php for ($i = 0; $i < 7; $i++) { ?>
-
                                     <!--  -->
                                     <div class="flex">
                                         <button class="flex space-x-3 items-center btnCategories">
@@ -59,44 +60,9 @@
                     <div class="w-[100%] px-7">
                         <div class="">
                             <div class="flex items-center justify-center">
-                                <div id="gridProducts" class="grid grid-cols-3 gap-6">
+                                <div id="gridProducts" class="">
 
-
-
-                                    <?php for ($i = 0; $i < 12; $i++) { ?>
-                                        <!-- Card -->
-                                        <div class=" w-[260px] h-[400px] group rounded-md dark:border-gray-800 border overflow-hidden dark:bg-slate-950">
-                                            <div class="relative w-[100%] h-[100%]">
-                                                <div class="relative z-20 w-full flex justify-between p-[10px]">
-                                                    <h2>Allen brandley</h2>
-                                                    <a href="#Heart" class="text-[#2453d4] transition-all duration-[0.3s]">
-                                                        <i id="heartCard" data-idItems="1" class="fa-regular fa-heart"></i>
-                                                    </a>
-                                                </div>
-                                                <a href="#" class="absolute w-[100%] top-0 h-[100%] group-hover:h-[85%] transition-all duration-[0.4s] top-0 bg-zinc-100 dark:bg-slate-950 p-[8px] left-0 z-[11]">
-                                                    <img class="w-full h-[250px] group-hover:h-[200px] transition-all duration-[0.4s] object-contain" src="https://gizmos.qodeinteractive.com/wp-content/uploads/2022/09/shop-img-102.png" alt="">
-                                                    <div class="text-[1.1rem] py-[8px]">
-                                                        <h2>Mouse Videogame</h2>
-                                                        <span>$1,450 <span class="text-[11px] text-gray-600">MXN</span> </span>
-                                                    </div>
-                                                </a>
-
-                                                <a class="flex absolute z-[10] w-[100%] h-[15%] bg-[#2453d4] text-white text-[13px] justify-between items-center bottom-0 left-0 right-0 mx-auto p-[20px] py-[27px] uppercase" href="#aggCart">
-                                                    <span>Agregar al carrito</span>
-                                                    <span><i class="fa-solid fa-cart-plus"></i></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- End - Card -->
-                                    <?php } ?>
-
-
-
-
-
-
-
-
+                                    <div class="grid grid-cols-3 gap-6" id="cardContainer"></div>
 
 
 
@@ -110,5 +76,62 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    const data = [
+        <?php foreach ($dtsProducts as $product) { ?> {
+                id: <?php echo $product['id'] ?>,
+                num_part: "<?php echo $product['num_parte'] ?>",
+                precio: <?php echo $product['precio'] ?>,
+                cantidad: <?php echo $product['cantidad'] ?>,
+                marca: "<?php echo $product['marca'] ?>",
+                descripcion: "<?php echo $product['descripcion'] ?>",
+
+            },
+        <?php } ?>
+    ];
+
+
+    // Función para generar las tarjetas
+    function generateCards() {
+        const cardContainer = document.getElementById("cardContainer");
+
+        // Limpiamos el contenedor antes de agregar nuevas tarjetas
+        cardContainer.innerHTML = "";
+
+        // Iteramos sobre los datos y creamos una tarjeta para cada uno
+        data.forEach(item => {
+            const card = `
+      <div class="card w-[260px] h-[400px] group rounded-md dark:border-gray-800 border overflow-hidden dark:bg-slate-950">
+        <div class="relative w-full h-full">
+          <div class="relative z-20 w-full flex justify-between p-[10px]">
+            <h2>${item.marca}</h2>
+            <a href="#Heart" class="text-[#2453d4] transition-all duration-[0.3s]">
+              <i id="heartCard" data-idItems="${item.id}" class="fa-regular fa-heart"></i>
+            </a>
+          </div>
+          <a href="#" class="absolute w-full top-0 h-full group-hover:h-[85%] transition-all duration-[0.4s] top-0 bg-zinc-100 dark:bg-slate-950 p-[8px] left-0 z-[11]">
+            <img class="w-full h-[250px] group-hover:h-[200px] transition-all duration-[0.4s] object-contain" src="https://rlsolutions.com.mx/Admin/img/964434185.jpg" alt="${item.num_part}">
+            <div class="text-[1.1rem] py-[8px]">
+              <h2>${item.num_part}</h2>
+              <span>$${item.precio} <span class="text-[11px] text-gray-600">MXN</span></span>
+            </div>
+          </a>
+          <a class="flex absolute z-[10] w-full h-[15%] bg-[#2453d4] text-white text-[13px] justify-between items-center bottom-0 left-0 right-0 mx-auto p-[20px] py-[27px] uppercase" href="#aggCart">
+            <span>Agregar al carrito</span>
+            <span><i class="fa-solid fa-cart-plus"></i></span>
+          </a>
+        </div>
+      </div>
+    `;
+            // Agregamos la tarjeta al contenedor
+            cardContainer.innerHTML += card;
+        });
+    }
+
+    // Llamamos a la función para generar las tarjetas al cargar la página
+    window.addEventListener("load", generateCards);
+</script>
 
 <?php require 'footer.php'; ?>

@@ -21,29 +21,32 @@ document
 
 const cardInicioSesion = document.getElementById("cardInicioSesion");
 const cardRegistroUser = document.getElementById("cardRegistroUser");
+const usersLogin = document.getElementById("usersLogin");
 
-document.getElementById("usersLogin").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)();
-  document.getElementById("sesionView").classList.toggle("hidden");
-});
+if (usersLogin) {
+  usersLogin.addEventListener("click", () => {
+    toggleCardVisibility(cardInicioSesion)();
+    document.getElementById("sesionView").classList.toggle("hidden");
+  });
 
-document
-  .getElementById("btnExitLogin")
-  .addEventListener("click", toggleCardVisibility(cardInicioSesion));
+  document
+    .getElementById("btnExitLogin")
+    .addEventListener("click", toggleCardVisibility(cardInicioSesion));
 
-document
-  .getElementById("btnExitRegister")
-  .addEventListener("click", toggleCardVisibility(cardRegistroUser));
+  document
+    .getElementById("btnExitRegister")
+    .addEventListener("click", toggleCardVisibility(cardRegistroUser));
 
-document.getElementById("btnRegistrarme").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)();
-  toggleCardVisibility(cardRegistroUser)();
-});
+  document.getElementById("btnRegistrarme").addEventListener("click", () => {
+    toggleCardVisibility(cardInicioSesion)();
+    toggleCardVisibility(cardRegistroUser)();
+  });
 
-document.getElementById("yaTengoCuenta").addEventListener("click", () => {
-  toggleCardVisibility(cardInicioSesion)();
-  toggleCardVisibility(cardRegistroUser)();
-});
+  document.getElementById("yaTengoCuenta").addEventListener("click", () => {
+    toggleCardVisibility(cardInicioSesion)();
+    toggleCardVisibility(cardRegistroUser)();
+  });
+}
 
 function toggleCardVisibility(card) {
   return () => {

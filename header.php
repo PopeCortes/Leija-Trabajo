@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="es" class="dark">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЯLsolutions</title>
-    <!-- <link rel="shortcut icon" href="./Readme_Img/Index_Dark.png" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="images/logo-icons.png" type="image/x-icon">
 
     <!-- Link style -->
     <link rel="stylesheet" href="css/style.css">
@@ -52,14 +54,20 @@
                         <!--//! Inicio de sesión -->
                         <li class="relative"><a id="btnUserView" href="#User"><i class="fa-regular fa-user"></i></a>
                             <div id="sesionView" class="hidden w-[180px] z-50 absolute top-[40px] right-2">
-                                <div class="dark:bg-[#2E4053] bg-[#D0D3D4] p-4 rounded-lg max-h-[500px] overflow-auto">
-                                    <ul class="text-end text-[16px] space-y-2">
-                                        <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="#">Mis compras</a></li>
+                                <div class=" relative dark:bg-[#2E4053] bg-[#D0D3D4] p-4 rounded-lg max-h-[500px] overflow-auto">
+                                    <p class=" absolute text-[14px] text-[#B3B6B7] top-0 left-2"><?php echo @$_SESSION['nombre'] ?></p>
+                                    <ul class="text-end text-[16px] space-y-2 pt-3">
+                                        <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="shopping_history.php">Mis compras</a></li>
                                         <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="#">Favoritos</a></li>
                                         <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="#">Ofertas</a></li>
                                         <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="#">Mi cuenta</a></li>
-                                        <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="#">Cerrar sesión</a></li>
-                                        <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" id="usersLogin" href="#">Iniciar sesión</a></li>
+
+                                        <?php if (empty($_SESSION['nombre'])) { ?>
+                                            <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" id="usersLogin" href="#">Iniciar sesión</a></li>
+                                        <?php } else { ?>
+                                            <li class="w-full"><a class="w-full inline-block hover:scale-[1.07] transition-all" href="php/cerrarSesion.php">Cerrar sesión</a></li>
+
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -89,10 +97,10 @@
         </header>
         <nav style="border-bottom: 1px solid #1F618D;">
             <ul class="flex justify-between px-[4rem] py-3">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="productos.php">Productos</a></li>
                 <li><a href="proyects.php">Proyectos</a></li>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Ubicación</a></li>
+                <li><a href="about.php">Acerca de</a></li>
+                <li><a href="ubicacion.php">Ubicación</a></li>
             </ul>
         </nav>
